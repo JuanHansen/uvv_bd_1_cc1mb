@@ -1,13 +1,13 @@
-/* Criando o usuário juan */
+/* criando o usuário juan */
 CREATE USER 'juan'@'localhost' IDENTIFIED BY '123456';
 
 /* dando priivilegios ao meu usuário criado */
 GRANT ALL PRIVILEGES ON . TO 'juan'@'localhost' WITH GRANT OPTION;
 
-/* Criação do banco de dados uvv */
+/* criação do banco de dados uvv */
 CREATE DATABASE uvv;
 
-/* Usar o banco de dados uvv */
+/* usar o banco de dados uvv */
 USE uvv
 
 CREATE TABLE funcionario (
