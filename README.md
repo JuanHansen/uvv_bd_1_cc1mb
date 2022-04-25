@@ -1,6 +1,9 @@
 ## PSET 1 
 **Aluno:** Juan Carlos Lameira Hansen
+
 **Sala:** CC1MB
+
+
 **Muito**: Sofrimento
 
 
