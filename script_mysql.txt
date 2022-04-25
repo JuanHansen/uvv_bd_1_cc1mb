@@ -1,4 +1,4 @@
-# LOGIN PELO USUÁRIO ROOT:
+/* LOGIN PELO USUÁRIO ROOT*/
 mysql -u root -p
 computacao@raiz
 
