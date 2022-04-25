@@ -1,3 +1,7 @@
+# LOGIN PELO USUÁRIO ROOT:
+mysql -u root -p
+computacao@raiz
+
 /* criando o usuário juan */
 CREATE USER 'juan'@'localhost' IDENTIFIED BY '123456';
 
