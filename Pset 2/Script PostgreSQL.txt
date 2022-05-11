@@ -1,0 +1,153 @@
+-- Questão 1
+
+select avg(salario) as media_salarial, numero_departamento
+from funcionario 
+group by numero_departamento ;
+
+
+-- Questão 2
+
+select avg(salario) as media, sexo
+from funcionario 
+group by sexo;
+
+
+-- Questão 3
+
+select nome_departamento,
+concat(primeiro_nome, ' ', nome_meio, ' ', ultimo_nome) as nome_funcionario, data_nascimento,
+extract(year from age (funcionario.data_nascimento)) as idade,salario
+from departamento, funcionario
+where departamento.numero_departamento = funcionario.numero_departamento ;
+
+
+-- Questão 4
+
+select concat(primeiro_nome, ' ', nome_meio, ' ', ultimo_nome) as nome_funcionario,
+    data_nascimento,
+    salario,
+    case when salario < 35000 then salario * 1.2
+         when salario >= 35000 then salario * 1.15
+    end as reajuste_salario from funcionario;
+
+
+-- Questão 5
+
+select nome_departamento, 
+concat(primeiro_nome, ' ', nome_meio, ' ', ultimo_nome) as nome,
+case when cpf = cpf_gerente then 'Gerente'
+ else 'Funcionario'
+ end as cargo, 
+ salario
+from departamento, funcionario 
+where departamento.numero_departamento = funcionario.numero_departamento 
+order by nome_departamento, salario desc;
+
+
+-- Questão 6
+
+
+select concat(funcionario.primeiro_nome,' ', funcionario.nome_meio,' ', funcionario.ultimo_nome) Funcionário, departamento.nome_departamento Departamento, 
+concat(d.nome_dependente,' ', funcionario.nome_meio,' ', funcionario.ultimo_nome) Dependente, extract(year from age (funcionario.data_nascimento)) as idade,
+case
+when d.sexo = 'F' then 'Feminino'
+when d.sexo = 'M' then 'Masculino'
+end "sexo_dependente"
+from funcionario
+inner join departamento 
+on funcionario.numero_departamento = departamento.numero_departamento
+inner join dependente d
+on funcionario.cpf = d.cpf_funcionario;
+
+
+-- Questão 7
+
+select concat (primeiro_nome, ' ', nome_meio, ' ', ultimo_nome) as nome_completo,nome_departamento,salario
+from departamento, funcionario 
+left join dependente
+on funcionario.cpf = dependente.cpf_funcionario
+where dependente.cpf_funcionario is null
+and funcionario.numero_departamento = departamento.numero_departamento
+order by  nome_departamento, salario desc
+
+
+
+-- Questão 8
+
+select concat (f.primeiro_nome,' ', f.nome_meio,' ',f.ultimo_nome) as nomeCompleto_funcionario, d.nome_departamento, p.nome_projeto, t.horas
+from funcionario f 
+inner join departamento d on d.numero_departamento = f.numero_departamento 
+inner join trabalha_em t on t.cpf_funcionario = f.CPF
+inner join projeto p on p.numero_projeto = t.numero_projeto 
+order by p.numero_projeto 
+
+
+
+
+-- Questão 9
+
+select nome_departamento,nome_projeto,
+sum(horas) as total_horas
+from elmasri.departamento dp
+inner join elmasri.projeto     p on (dp.numero_departamento = p.numero_departamento)
+inner join elmasri.trabalha_em t on (p.numero_projeto = t.numero_projeto)
+group by nome_departamento, nome_projeto;
+
+
+-- Questão 10
+
+select avg(salario) as media_salarial, numero_departamento
+from funcionario 
+group by numero_departamento ;
+
+
+-- Questão 11
+
+select distinct 
+concat(primeiro_nome,' ', nome_meio,' ', ultimo_nome) AS nome_completo_funcionario,nome_projeto,
+sum(horas * 50) as valor_total
+from elmasri.funcionario f
+inner join elmasri.projeto p  on (f.numero_departamento = p.numero_departamento)
+inner join elmasri.trabalha_em t on (p.numero_projeto = t.numero_projeto)
+group by nome_completo_funcionario, nome_projeto
+order by nome_completo_funcionario;
+
+
+-- Questão 12
+
+select nome_departamento,nome_projeto,primeiro_nome as nome_funcionario
+from elmasri.projeto p
+inner join elmasri.departamento dp on (p.numero_departamento = dp.numero_departamento)
+inner join elmasri.funcionario f on (p.numero_departamento = f.numero_departamento)
+inner join elmasri.trabalha_em t on (p.numero_projeto = t.numero_projeto)
+where t.horas is null or t.horas = 0;
+
+-- Questão 13
+
+select
+concat (primeiro_nome,' ', nome_meio,' ', ultimo_nome)as nome_completo_pessoa,sexo                                                                 as sexo,
+date_part('year', CURRENT_DATE) - DATE_PART('year', data_nascimento) as idade
+from elmasri.funcionario
+union
+select concat(nome_dependente, ' ', f.ultimo_nome),d.sexo,
+date_part('year', CURRENT_DATE) - DATE_PART('year', d.data_nascimento)
+from elmasri.dependente d
+inner join elmasri.funcionario f on (cpf_funcionario = cpf)
+order by idade desc;
+
+
+-- Questão 14
+
+select nome_departamento as departamento ,
+count(cpf) as quantos_funcionarios
+from elmasri.funcionario f
+inner join elmasri.departamento dp on (f.numero_departamento = dp.numero_departamento)
+group by nome_departamento;
+
+-- Questão 15
+
+select concat(primeiro_nome,' ', nome_meio,' ', ultimo_nome) as nome_completo_funcionario,
+f.numero_departamento as _departamento,
+nome_projeto as projeto_alocado
+from elmasri.funcionario f
+left outer join elmasri.projeto p on (f.numero_departamento = p.numero_departamento);
