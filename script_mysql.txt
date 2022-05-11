@@ -135,7 +135,7 @@ INSERT INTO funcionario VALUES
 
 insert into departamento VALUES
 (1, 'Matriz', 88866555576, '1981-06-19'),
-(5, 'Pesqusia', 33344555587, '1988-05-22'),
+(5, 'Pesquisa', 33344555587, '1988-05-22'),
 (4, 'Administração', 98765432168, '1995-01-01');
 
 
@@ -151,8 +151,8 @@ INSERT INTO projeto VALUES
 (2, 'ProdutoY', 'Itu', 5),
 (3, 'ProdutoZ', 'São Paulo', 5),
 (10, 'Informatização', 'Mauá', 4),
-(20, 'Reorganiazãço', 'São Paulo', 1),
-(30, 'Novosbenefícios', 'Mauá', 4);
+(20, 'Reorganização', 'São Paulo', 1),
+(30, 'NovosBenefícios', 'Mauá', 4);
 
 
 INSERT INTO dependente VALUES
