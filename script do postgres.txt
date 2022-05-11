@@ -42,20 +42,20 @@ set search_path to elmasri, "\user", public;
 /* CRIAÇÃO DAS TABELAS */
 
 CREATE TABLE elmasri.funcionario (
-                cpf CHAR(11) NOT NULL,
-                primeiro_nome VARCHAR(15) NOT NULL,
+ cpf CHAR(11) NOT NULL,
+ primeiro_nome VARCHAR(15) NOT NULL,
                 nome_meio CHAR(1),
                 ultimo_nome VARCHAR(15) NOT NULL,
                 data_nascimento DATE,
-                endereco VARCHAR(50), 
+                endereco VARCHAR(60), 
                 sexo CHAR(1),
                 salario NUMERIC(10,2),
                 cpf_supervisor CHAR(11) NOT NULL,
                 numero_departamento INTEGER NOT NULL,
-                CONSTRAINT pk_funcionario PRIMARY KEY (cpf)
+         CONSTRAINT pk_funcionario PRIMARY KEY (cpf)
 );
 
-/* aumentei o varchar de 30 para 50 do campo endereco para evitar um erro específico por conta da falta de espaço */
+/* aumentei o varchar de 30 para 60 do campo endereco para evitar um erro específico por conta da falta de espaço */
 
 COMMENT ON TABLE funcionario IS 'essa é a tabela que armazena as informações dos funcionários.';
 COMMENT ON COLUMN funcionario.cpf IS 'CPF do funcionário e será a PK da tabela.';
@@ -209,7 +209,7 @@ Além disso, para que ele fosse cadastrado, seu cpf_supervisor será igual ao se
 
 INSERT INTO departamento VALUES
 (1, 'Matriz', 88866555576, '1981-06-19'),
-(5, 'Pesqusia', 33344555587, '1988-05-22'), 
+(5, 'Pesquisa', 33344555587, '1988-05-22'), 
 (4, 'Administração', 98765432168, '1995-01-01');
 
 INSERT INTO localizacoes_departamento VALUES
