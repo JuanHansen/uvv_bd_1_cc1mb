@@ -125,7 +125,7 @@ where t.horas is null or t.horas = 0;
 -- Questão 13
 
 select
-concat (primeiro_nome,' ', nome_meio,' ', ultimo_nome)as nome_completo_pessoa,sexo                                                                 as sexo,
+concat (primeiro_nome,' ', nome_meio,' ', ultimo_nome)as nome_completo_pessoa,sexo as sexo,
 date_part('year', CURRENT_DATE) - DATE_PART('year', data_nascimento) as idade
 from elmasri.funcionario
 union
