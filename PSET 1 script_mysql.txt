@@ -28,7 +28,6 @@ CREATE TABLE funcionario (
                 PRIMARY KEY (cpf)
 );
 
-
 CREATE TABLE departamento (
                 numero_departamento INT NOT NULL,
                 nome_departamento VARCHAR(15) NOT NULL,
@@ -36,7 +35,6 @@ CREATE TABLE departamento (
                 data_inicio_gerente DATE,
                 PRIMARY KEY (numero_departamento)
 );
-
 
 CREATE UNIQUE INDEX departamento_idx
  ON departamento
@@ -50,7 +48,6 @@ CREATE TABLE projeto (
                 PRIMARY KEY (numero_projeto)
 );
 
-
 CREATE UNIQUE INDEX projeto_idx
  ON projeto
  ( nome_projeto );
@@ -62,13 +59,11 @@ CREATE TABLE trabalha_em (
                 PRIMARY KEY (cpf_funcionario, numero_projeto)
 );
 
-
 CREATE TABLE localizacoes_departamento (
                 numero_departamento INT NOT NULL,
                 local VARCHAR(15) NOT NULL,
                 PRIMARY KEY (numero_departamento, local)
 );
-
 
 CREATE TABLE dependente (
                 cpf_funcionario CHAR(11) NOT NULL,
@@ -78,7 +73,6 @@ CREATE TABLE dependente (
                 parentesco VARCHAR(15),
                 PRIMARY KEY (cpf_funcionario, nome_dependente)
 );
-
 
 ALTER TABLE dependente ADD CONSTRAINT funcionario_dependente_fk
 FOREIGN KEY (cpf_funcionario)
