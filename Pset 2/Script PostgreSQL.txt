@@ -1,6 +1,6 @@
-### Este trabalho foi realizado com a ajuda de dois colegas de turma!
-#### Gabriel Negreiros Piffer
-#### Guilherme Henrique Vieira
+/* Este trabalho foi realizado com a ajuda de dois colegas de turma
+Gabriel Negreiros Piffer
+Juan Carlos Lameira Hansen */
 
 
 -- Questão 1
