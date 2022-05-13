@@ -1,3 +1,8 @@
+### Este trabalho foi realizado com a ajuda de dois colegas de turma!
+#### Gabriel Negreiros Piffer
+#### Guilherme Henrique Vieira
+
+
 -- Questão 1
 
 select avg(salario) as media_salarial, numero_departamento
