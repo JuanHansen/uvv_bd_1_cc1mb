@@ -1,3 +1,9 @@
+### Este trabalho foi realizado com a ajuda de dois colegas de turma!
+#### Gabriel Negreiros Piffer
+#### Guilherme Henrique Vieira
+
+
+
 ## QUESTÃO 01
 
  
